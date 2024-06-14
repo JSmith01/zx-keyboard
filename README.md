@@ -6,6 +6,7 @@
 * `delta` reproduces classic ZX Spectrum+ / Delta-S clone keyboard
 * `next-like` follows ZX Spectrum Next quite closely, but uses standard third letter row shift of 0.5u instead of Next's
 non-standard 0.75u. Some other keys were swapped to keep it closer to the Spectrum+ layout.
+* `13u` uses slightly condensed layout, requires only one stabilizer and only one stepped 1.25u key. Additionally it fits my 3d printer plate (256 mm cube).
 
 
 ## Keycap models
