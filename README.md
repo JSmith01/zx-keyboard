@@ -17,7 +17,7 @@
 
 
 
-## Keycap models
+## Keycap models (Karon/Kopir-like)
 
 ![ZX keyboard keys](https://github.com/JSmith01/zx-keyboard/blob/master/keycap%20models/keys.png?raw=true)
 
@@ -43,6 +43,40 @@ Layout design service used: http://www.keyboard-layout-editor.com/
 Plate generation service used: http://builder.swillkb.com/
 
 
-## Keyboard case
 
-TBD
+## 13u wide keyboard case for a wedge case computer (WIP)
+
+![RPi Zero 2 W wedge case computer](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-case/case.png?raw=true)
+
+Files for case parts are in `pc-58-case` directory. The main design constraint was, again, to fit each piece entirely into my 3d printer volume (cube of 256mm).
+
+For my implementation I chose RPi 2 Zero W as a main board, mainly because of its low price and the fact I already had one. The design is parametric and it can be changed to adopt almost any board. The back cover of the case is a separate piece, so in case of re-printing it would require changing of the bottom piece and the back. The plate and the front keyboard case will remain unchanged. The case design is WIP still, however, I was able to print the plate, keycaps, and assemble it.
+
+CAD link: https://cad.onshape.com/documents/80a6f71aa4ea5afbe3c2f400/w/0c9d95387bdbef7828758cf6/e/f104cb4e70454155592a95cd?renderMode=0&uiState=66de39ae955acf43bb4a916e
+
+![RPi Zero 2 W wedge case computer](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-case/isometric-case.png?raw=true)
+
+### 13u wide keyboard layout (PC like)
+
+The directory `pc-58-key` has all the files for the layout, keycaps used, plate `.dxf` file. For the design, the only concerns were to fit into 13u limit, and have dedicated cursor keys (I hope it would help with retro gaming).
+
+![RPi Zero 2 W wedge case computer](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-key/58-layout.png?raw=true)
+
+It uses the same keycap models as ZX keys, but with other parameters:
+* `#side_angle` (20 deg) 
+* `#front_angle` (30 deg)
+* `#rear_angle` (1 deg)
+
+![58 keyboard 13u wide](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-key/58-keyboard.jpg?raw=true)
+
+The keyboard needs 58 key switches (I used yellow gaterons), and 2 stabilizers - 2u and 4.5u (uncommon, but see below about using common 6.25u).
+
+
+## Re-bending key stabilizers from 6.25u / 6.5u / 7u to 4.5u
+
+Since I didn't find plate mounted stabilizers for 4.5u space, I had to bend the existing 6.25u stab to the needed dimension. This is a small guiding tool that helps to re-bend stab rod to the size of 4.5u. It requires two M2 screw bolts, 6-10mm long each. The model can be found in `auxilliary` directory.
+
+![re-bend tool to 4.5u](https://github.com/JSmith01/zx-keyboard/blob/master/auxilliary/re-bend-4.5u.png?raw=true)
+
+CAD link:
+https://cad.onshape.com/documents/ae3792f91f504da8d6e72a6f/w/ced467ad9bcd54dddc1017f0/e/babc9538a75bcf5462f88daf?renderMode=0&uiState=66de3a5012896b37f23ab387
