@@ -17,7 +17,7 @@
 
 * `13u-pc` PC-like keyboard to fit into 13u limit, requires 2 stabilizers, keycaps can be either printed or bought (however, some keys are barely of standard sizes).
 
-  ![13u-pc condensed layout] (https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-key/58-layout.png?raw=true)
+  ![13u-pc condensed layout](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-key/58-layout.png?raw=true)
 
 
 ## Keycap models (Karon/Kopir-like)
