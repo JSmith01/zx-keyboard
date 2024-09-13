@@ -1,9 +1,9 @@
-# Another ZX keyboard with Cherry MX switches
+# Another (ZX/PC) keyboard case with Cherry MX switches
 
 
 ## Layout
 
-3 were designed:
+4 were designed:
 * `delta` reproduces classic ZX Spectrum+ / Delta-S clone keyboard
 
   ![Delta-S layout](https://github.com/JSmith01/zx-keyboard/blob/master/delta/delta-layout.png?raw=true)
@@ -15,6 +15,9 @@
 
   ![13u condensed layout](https://github.com/JSmith01/zx-keyboard/blob/master/13u/13u-layout.png?raw=true)
 
+* `13u-pc` PC-like keyboard to fit into 13u limit, requires 2 stabilizers, keycaps can be either printed or bought (however, some keys are barely of standard sizes).
+
+  ![13u-pc condensed layout] (https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-key/58-layout.png?raw=true)
 
 
 ## Keycap models (Karon/Kopir-like)
@@ -45,6 +48,8 @@ Plate generation service used: http://builder.swillkb.com/
 
 
 ## 13u wide keyboard case for a wedge case computer (WIP)
+
+![RPi Zero 2 W wedge case computer](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-case/pictures/Image00005.jpg?raw=true)
 
 ![RPi Zero 2 W wedge case computer](https://github.com/JSmith01/zx-keyboard/blob/master/pc-58-case/case.png?raw=true)
 
