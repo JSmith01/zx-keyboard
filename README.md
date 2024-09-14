@@ -85,3 +85,9 @@ Since I didn't find plate mounted stabilizers for 4.5u space, I had to bend the 
 
 CAD link:
 https://cad.onshape.com/documents/ae3792f91f504da8d6e72a6f/w/ced467ad9bcd54dddc1017f0/e/babc9538a75bcf5462f88daf?renderMode=0&uiState=66de3a5012896b37f23ab387
+
+
+## Tool for converting KLE .json to .svg
+
+To prepare keycap labels it will be useful to create SVGs from appropriate layout files. So I've created `kle2svg` tool to do so.
+It's pretty limited for its support for KLE features, but works for my layouts.

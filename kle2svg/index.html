@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLE json to SVG converter</title>
+    <script>
+        const H_GAP = 1;
+        const V_GAP = 1;
+        const H_SIZE = 54;
+        const V_SIZE = 54;
+
+        const getW = w => w * (H_SIZE + H_GAP);
+        const getH = h => h * (V_SIZE + V_GAP);
+        const getX = x => x * (H_SIZE + H_GAP);
+        const getY = x => x * (V_SIZE + V_GAP);
+
+        function createKey(x, y, opts) {
+            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+            const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            const w = getW(opts.w) - V_GAP;
+            const h = getH(opts.h) - V_GAP;
+            r.setAttribute('width', w);
+            r.setAttribute('height', h);
+            const sx = getX(x) + 0.5;
+            const sy = getY(y) + 0.5;
+            r.setAttribute('x', sx);
+            r.setAttribute('y', sy);
+            r.setAttribute('stroke', 'black');
+            r.setAttribute('fill', opts.c);
+            g.appendChild(r);
+
+            const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            t.appendChild(document.createTextNode(opts.text));
+            t.setAttribute('x', sx + w / 2);
+            t.setAttribute('y', sy + h / 2);
+            t.classList.add('fz' + opts.f);
+            g.appendChild(t);
+
+            return g;
+        }
+
+        function drawKeyboard(kb) {
+            const svg = document.getElementById('output');
+            svg.innerHTML = '';
+            const svgCss = document.getElementById('forSvg').content.cloneNode(true);
+            svg.appendChild(svgCss);
+
+            console.log(kb);
+            let x = 0, y = 0, maxW = 0, c = '#ffffff', f = 3;
+            for(const row of kb) {
+                for (let i = 0; i < row.length; i++) {
+                    const v = row[i];
+                    const opts = { c, f, w: 1, h: 1 };
+                    if (typeof v === 'object') {
+                        Object.assign(opts, v);
+                        c = opts.c;
+                        f = opts.f;
+                        opts.text = row[++i];
+                    } else {
+                        opts.text = v;
+                    }
+                    svg.appendChild(createKey(x, y, opts));
+                    if (opts.l) {
+                        x += Math.max(opts.w, opts.w2);
+                    } else {
+                        x += opts.w;
+                    }
+                }
+
+                y++;
+                if (x > maxW) {
+                    maxW = x;
+                }
+                x = 0;
+            }
+            svg.setAttribute('width', getW(maxW) + H_GAP);
+            svg.setAttribute('height', getW(y) + V_GAP);
+        }
+
+        let fName = '';
+
+        async function convert() {
+            const [f] = window.document.getElementById('jsonUpload').files ;
+            if (!f) return;
+
+            const parsedJson = JSON.parse(await f.text());
+            if (!Array.isArray(parsedJson) || parsedJson.some(line => !Array.isArray(line))) {
+                alert('Incorrect keyboard layout file');
+                
+                return;
+            }
+
+            fName = f.name;
+            drawKeyboard(parsedJson);
+        }
+
+        function downloadSvg() {
+            const svg = document.getElementById('output');
+            if (svg.innerHTML.trim() === '') return;
+
+            const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+            const a = document.createElement('a');
+            a.download = (fName.replace(/\.json$/, '') || 'layout') + '.svg';
+            a.href = URL.createObjectURL(blob);
+            a.dispatchEvent(new MouseEvent('click'));
+        }
+    </script>
+    <style>
+        input[type=number] {
+            width: 50px;
+        }
+    </style>
+    <template id="forSvg">
+        <style>
+            svg text {
+                font-family: "Segoe UI","Arial","Helvetica",sans-serif;
+                text-anchor: middle;
+                dominant-baseline: middle;
+            }
+            .fz1 { font-size: 8px }
+            .fz2 { font-size: 10px }
+            .fz3 { font-size: 12px }
+            .fz4 { font-size: 14px }
+            .fz5 { font-size: 16px }
+            .fz6 { font-size: 18px }
+            .fz7 { font-size: 20px }
+            .fz8 { font-size: 22px }
+            .fz9 { font-size: 24px }
+        </style>
+    </template>
+</head>
+<body>
+    <div class="controls-wrapper">
+        <input type="file" id="jsonUpload" accept=".json,application/json" onchange="convert()">
+        <button onclick="downloadSvg()">Download</button>
+    </div>
+    <div class="svg-wrapper">
+        <svg id="output" version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+</body>
+</html>
