@@ -89,7 +89,7 @@ https://cad.onshape.com/documents/ae3792f91f504da8d6e72a6f/w/ced467ad9bcd54dddc1
 
 # Wiring
 
-I wired keyboard using 1N4148 diodes, that I solder their pins to each other making rows, similar to the process shown in this video: [Hand-wiring a custom layout keyboard](https://youtu.be/3uSKgCuK3tc?si=MMpzzscPRhe9YTKL&t=43). The only difference I bend diodes upfront, so I've made a tool for that.
+I wired keyboard using 1N4148 diodes, that I solder their pins to each other making rows, similar to the process shown in this video: [Hand-wiring a custom layout keyboard](https://youtu.be/3uSKgCuK3tc?si=MMpzzscPRhe9YTKL&t=43). The only difference I bend diodes upfront, so I've made a tool for that. Files can be found in the `auxilliary` directory.
 
 ![diode helper](https://github.com/JSmith01/zx-keyboard/blob/master/auxilliary/diode-helper.jpg?raw=true)
 
