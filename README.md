@@ -87,6 +87,19 @@ CAD link:
 https://cad.onshape.com/documents/ae3792f91f504da8d6e72a6f/w/ced467ad9bcd54dddc1017f0/e/babc9538a75bcf5462f88daf?renderMode=0&uiState=66de3a5012896b37f23ab387
 
 
+# Wiring
+
+I wired keyboard using 1N4148 diodes, that I solder their pins to each other making rows, similar to the process shown in this video: [Hand-wiring a custom layout keyboard](https://youtu.be/3uSKgCuK3tc?si=MMpzzscPRhe9YTKL&t=43). The only difference I bend diodes upfront, so I've made a tool for that.
+
+![diode helper](https://github.com/JSmith01/zx-keyboard/blob/master/auxilliary/diode-helper.jpg?raw=true)
+
+Result looks like this (I use 8mm wide capton tape for isolation):
+
+![wiring in process](https://github.com/JSmith01/zx-keyboard/blob/master/auxilliary/wiring.jpg?raw=true)
+
+![wired keyboard](https://github.com/JSmith01/zx-keyboard/blob/master/auxilliary/wired-keyboard.jpg?raw=true)
+
+
 ## Tool for converting KLE .json to .svg
 
 To prepare keycap labels it will be useful to create SVGs from appropriate layout files. So I've created `kle2svg` tool to do so.
